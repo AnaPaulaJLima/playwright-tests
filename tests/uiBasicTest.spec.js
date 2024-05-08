@@ -33,11 +33,12 @@ test('Page Playwright test', async ({page})=>
    await expect(page).toHaveTitle("Google");
 });
 
-test.only('UI Controls', async ({page})=>
+test('UI Controls', async ({page})=>
 {
    const userName = page.locator('#username');
    const signIn = page.locator('#signInBtn');
    const dropdown = page.locator("select.form-control");
+   const documentsReq = page.locator("[href*='documents-request']");
 
    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
    await dropdown.selectOption("stud");
@@ -47,6 +48,27 @@ test.only('UI Controls', async ({page})=>
    await page.locator("#terms").click(); 
    await expect(page.locator("#terms")).toBeChecked();
    await page.locator("#terms").uncheck();
-   await expect(await page.locator("#terms").isChecked()).toBeFalsy();
+   expect(await page.locator("#terms").isChecked()).toBeFalsy();
+   await expect(documentsReq).toHaveAttribute('class', 'blinkingText'); 
 
+});
+
+test.only('Child windows hadl', async({browser})=> 
+{
+   const context = await browser.newContext(); 
+   const page = await context.newPage();
+   //const userName = page.locator('#username');
+   const documentsReq = page.locator("[href*='documents-request']");
+
+   await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+
+   const [newPage] = await Promise.all([
+      context.waitForEvent('page'), 
+      documentsReq.click(),
+   ]);
+
+   const text = await newPage.locator(".red").textContent(); 
+   const arrayText = text.split("@");
+   const domain = arrayText[1].split(".")[0];
+   await page.locator('#username').fill(domain);
 });
