@@ -23,5 +23,9 @@ test('Client App Login', async ({page})=>
             break;
       }  
     }
-    
+
+    await page.locator("[routerlink*='cart']").click();
+    await page.locator("div li").first().waitFor();
+    const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
+    expect(bool).toBeTruthy();
 });
