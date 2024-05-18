@@ -33,7 +33,7 @@ test('Page Playwright test', async ({page})=>
    await expect(page).toHaveTitle("Google");
 });
 
-test.only('UI Controls', async ({page})=>
+test('UI Controls', async ({page})=>
 {
    const userName = page.locator('#username');
    const signIn = page.locator('#signInBtn');
@@ -53,7 +53,7 @@ test.only('UI Controls', async ({page})=>
 
 });
 
-test('Child windows hadl', async({browser})=> 
+test.only('Child windows hadl', async({browser})=> 
 {
    const context = await browser.newContext(); 
    const page = await context.newPage();
