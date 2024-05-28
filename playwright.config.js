@@ -15,7 +15,10 @@ const { devices } = require('@playwright/test');
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     browserName: 'chromium', 
-    headless: false 
+    headless: false,
+    screenshot : 'on', 
+    trace: 'retrain-on-failure', //off,on
+
   },
 
 
