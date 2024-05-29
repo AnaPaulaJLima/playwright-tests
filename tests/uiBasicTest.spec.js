@@ -2,13 +2,15 @@ const {test, expect} =  require('@playwright/test');
 
 
 
-test('Browser context Playwright test', async ({browser})=>
+test.only('Browser context Playwright test', async ({browser})=>
 {
     const context = await browser.newContext();
     const page = await context.newPage();
+    await page.route('**/*.{jpg,png}', route=>route.abort());
     const userName = page.locator('#username');
     const signIn = page.locator('#signInBtn');
     const cardTittles =  page.locator(".card-body a");
+    page.on('request', request=> console.log(request.url()));
    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
    await page.title();
    await userName.fill("learning");
@@ -53,7 +55,7 @@ test('UI Controls', async ({page})=>
 
 });
 
-test.only('Child windows hadl', async({browser})=> 
+test('Child windows hadl', async({browser})=> 
 {
    const context = await browser.newContext(); 
    const page = await context.newPage();
