@@ -11,6 +11,7 @@ test.only('Browser context Playwright test', async ({browser})=>
     const signIn = page.locator('#signInBtn');
     const cardTittles =  page.locator(".card-body a");
     page.on('request', request=> console.log(request.url()));
+    page.on('ressponse', response=> console.log(response.url(), response.status()));
    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
    await page.title();
    await userName.fill("learning");
