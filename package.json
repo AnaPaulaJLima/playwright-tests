@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "test": "npx playwright test tests/webAPIpart1.spec.js --headed"
+    "test": "npx playwright test tests/webAPIpart1.spec.js --headed"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.43.1",
+    "@playwright/test": "^1.44.1",
     "@types/node": "^20.12.7"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
   }
 }
