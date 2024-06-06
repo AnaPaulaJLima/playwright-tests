@@ -1,7 +1,16 @@
-{
-    "userEmail" : "paulinhasjlima+tests@gmail.com",
-    "passaword" : "Testsplay24*",
-    "productName": "ZARA COAT 3",
-    "countryCode" : "bra",
-    "countryName" : "Brazil"
-}
+[
+    {
+        "userEmail" : "paulinhasjlima+tests@gmail.com",
+        "passaword" : "Testsplay24*",
+        "productName": "ZARA COAT 3",
+        "countryCode" : "bra",
+        "countryName" : "Brazil"
+    }, 
+    {
+        "userEmail" : "paulinhasjlima+tests2@gmail.com",
+        "passaword" : "Test789**",
+        "productName": "ADIDAS ORIGINAL",
+        "countryCode" : "bra",
+        "countryName" : "Brazil"
+    }
+]
