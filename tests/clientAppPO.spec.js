@@ -1,5 +1,6 @@
 const {test, expect} =  require('@playwright/test'); 
-const {LoginPage} =  require('../pageObjects/LoginPage');
+const { LoginPage } = require('../pageObjects/loginPage');
+const { DashboardPage } = require('../pageObjects/DashboardPage');
 
 
 test('Client App Login', async ({page})=>
@@ -10,21 +11,13 @@ test('Client App Login', async ({page})=>
     const countryName = 'Brazil';
     const passaword = "Testsplay24*";
     const loginPage = new LoginPage(page);
+    const dashboardPage = new DashboardPage(page);
 
-    loginPage.goTo();
-    loginPage.validLogin(userEmail,passaword);
-    await page.waitForLoadState('networkidle');    //dosent work, learn another option for the call request, possibility - products.first().waitFor();
-    const titiles = await products.locator("b").allTextContents();
-    const count = await products.count();
-    for (let i=0; i < count; ++i)
-    {
-      if (await products.nth(i).locator("b").textContent() === productName){
-            await products.nth(i).locator("[class='btn w-10 rounded']").click();
-            break;
-      }  
-    }
+    await loginPage.goTo();
+    await loginPage.validLogin(userEmail,passaword);
+    await dashboardPage.searchProductAddCard (productName);
+    await dashboardPage.navegateToCart();
 
-    await page.locator("[routerlink*='cart']").click();
     await page.locator("div li").first().waitFor();
     const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
     expect(bool).toBeTruthy();
