@@ -33,7 +33,7 @@ test(`Client App Login for ${data.productName}`, async ({page})=>
 });
 }
 
-customtest.only(`Client App Login for`, async ({page,testDataForOrder})=>
+customtest(`@Web Client App Login for`, async ({page,testDataForOrder})=>
     {
         const poManager = new POManager(page);
         const loginPage = poManager.getLoginPage();
