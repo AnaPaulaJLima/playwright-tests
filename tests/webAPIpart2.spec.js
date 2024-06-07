@@ -74,7 +74,7 @@ test('Client App Login', async ()=>
     expect(orderId.includes(orderIdDetails)).toBeTruthy();
 });
 
-test('Test case 2 ', async ()=>
+test('@API Test case 2 ', async ()=>
     {
         const email = "paulinhasjlima+tests@gmail.com";
         const page = await webContext.newPage();

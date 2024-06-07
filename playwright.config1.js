@@ -18,7 +18,7 @@ const { devices } = require('@playwright/test');
       name: 'safari', 
       use: {
         browserName: 'webkit', 
-        headless: false,
+        headless: true,
         screenshot : 'off', 
         trace: 'retrain-on-failure', //off,on
         ...devices['iPhone 14 Pro Max'],
@@ -28,7 +28,7 @@ const { devices } = require('@playwright/test');
       name: 'chrome', 
       use: {
         browserName: 'chromium', 
-        headless: false,
+        headless: true,
         screenshot : 'on', 
         ignoreHttpsErrors: true,
         permissions:['geolocation'],

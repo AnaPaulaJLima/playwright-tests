@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/webAPIpart1.spec.js --headed"
+    "regression": "npx playwright test", 
+    "webTests": "npx playwright test --grep @Web", 
+    "APITest": "npx playwright test --grep @API", 
+    "SafariNewConfig": "npx playwright test --config playwright.config1.js --project=safari",
+    "ChromeNewConfig": "npx playwright test --config playwright.config1.js --project=chrome"
   },
   "keywords": [],
   "author": "",
