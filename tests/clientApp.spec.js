@@ -9,7 +9,6 @@ test('Client App Login', async ({page})=>
     const productName = 'ZARA COAT 3';
     const countryName = 'Brazil';
     
-
     await page.goto("https://rahulshettyacademy.com/client"); 
     await page.locator("#userEmail").fill(email);
     await page.locator("#userPassword").fill("Testsplay24*");
